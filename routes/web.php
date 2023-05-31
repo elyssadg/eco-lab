@@ -19,3 +19,7 @@ Route::group(['middleware' => 'guest'], function(){
     Route::get('/login', [UserController::class, 'login']);
     Route::post('/login', [UserController::class, 'validate_login']);
 });
+
+Route::group(['middleware' => 'auth'], function(){
+    Route::get('/logout', [UserController::class, 'logout']);
+});

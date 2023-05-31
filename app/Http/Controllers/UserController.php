@@ -12,10 +12,12 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     
+    // Login View
     public function login(){
         return view('auth.login');
     }
 
+    // Login Validation
     public function validate_login(Request $request){
         // Input
         $credentials = [
@@ -39,6 +41,13 @@ class UserController extends Controller
         }
         
         // Not Valid
+        return redirect()->back();
+    }
+
+    // Logout
+    public function logout(){
+        Auth::logout();
+        Session::forget('login_session');
         return redirect()->back();
     }
 }
