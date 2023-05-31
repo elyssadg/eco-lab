@@ -18,10 +18,10 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <nav id="navigation-bar" class="w-screen">
+    <nav class="w-screen">
         <div class="w-full flex items-center justify-between mx-auto px-24 py-5">
             <a href="{{ url('/') }}">
-                <img src="{{ Storage::url('assets/general/logo.png') }}" class="h-10 mr-3" alt="Flowbite Logo" />
+                <img src="{{ Storage::url('assets/general/logo.png') }}" class="h-10 mr-3" alt="EcoLab" />
             </a>
             <div class="w-max flex gap-5 items-center">
                 <a href="{{ url('/calculator') }}" class="text-subheading text-mid font-medium hover:text-dark hover:border-b-2 hover:border-dark transition duration-500">
@@ -41,18 +41,16 @@
     </nav>
 
     <div class="scroll-to-top fixed bottom-5 right-5 z-50 flex items-center rounded-full bg-mid w-max h-max hover:shadow-md hover:shadow-mid/25">
-        <i class="fa fa-solid fa-arrow-up px-5 py-4 text-white"></i>
+        <i class="fa fa-solid fa-arrow-up px-5 py-5 text-white"></i>
     </div>
 
-    <section class="w-screen h-screen overflow-x-hidden">
-        @yield('content')
-    </section>
+    @yield('content')
 </body>
 <script>
     $(document).ready(function() {
         $('.scroll-to-top').on('click', function(event) {
-        event.preventDefault();
-        $('html, body').animate({ scrollTop: 0 }, 'slow');
+            event.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
         });
     });
 </script>

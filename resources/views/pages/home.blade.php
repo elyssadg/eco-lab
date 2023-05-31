@@ -31,8 +31,8 @@
         </div>
     </section>
 
-    <section class="w-screen h-max mt-20 flex flex-col gap-5 bg-gradient-to-t from-mid/[0.3] via-mid/[0.23] to-mid/[0.15] py-20">
-        <div class="w-[85%] mx-auto">
+    <section class="w-screen h-max mt-20 bg-gradient-to-t from-mid/[0.3] via-mid/[0.23] to-mid/[0.15] py-20">
+        <div class="w-[85%] mx-auto flex flex-col gap-5">
             <h1 class="text-title text-mid font-bold">How to Produce Eco-Enzyme</h1>
             <div class="flex justify-between h-max">
                 <img src="{{ Storage::url('assets/home/tutorial-img.jpeg') }}" class="w-[47.5%] rounded border border-mid border-opacity-50 shadow-md" alt="eco-enzyme image">
