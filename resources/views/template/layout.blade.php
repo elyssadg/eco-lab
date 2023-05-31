@@ -40,7 +40,7 @@
         </div>
     </nav>
 
-    <div class="scroll-to-top fixed bottom-5 right-5 z-50 flex items-center rounded-full bg-mid w-max h-max hover:shadow-md hover:shadow-mid/25">
+    <div class="scroll-to-top fixed bottom-5 right-5 z-50 flex items-center rounded-full bg-mid w-max h-max hover:shadow-md hover:shadow-mid/25 cursor-pointer">
         <i class="fa fa-solid fa-arrow-up px-5 py-5 text-white"></i>
     </div>
 
