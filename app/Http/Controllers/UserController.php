@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -42,6 +43,40 @@ class UserController extends Controller
         
         // Not Valid
         return redirect()->back();
+    }
+
+    // Register View
+    public function register(){
+        return view('auth.register');
+    }
+
+    // Register Validation
+    public function validate_register(Request $request){
+        $validation = [
+            'username' => 'required|unique:users|min:5',
+            'full_name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:8|confirmed',
+            'password_confirmation' => 'required',
+            'gender'=> 'required|in:male,female',
+            'birthday' => 'required|before:-15 years'
+        ];
+
+        $validator = Validator::make($request->all(), $validation);
+        if($validator->fails()){
+            return back()->withErrors($validator);
+        }
+
+        $user = new User();
+        $user->email = $request->email;
+        $user->username = $request->username;
+        $user->full_name = $request->full_name;
+        $user->password = bcrypt($request->password);
+        $user->gender = $request->gender;
+        $user->birthday = $request->birthday;
+        $user->save();
+
+        return view('auth.login');
     }
 
     // Logout

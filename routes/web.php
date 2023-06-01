@@ -18,6 +18,8 @@ Route::get('/', function () { return view('pages.home'); });
 Route::group(['middleware' => 'guest'], function(){
     Route::get('/login', [UserController::class, 'login']);
     Route::post('/login', [UserController::class, 'validate_login']);
+    Route::get('/register', [UserController::class, 'register']);
+    Route::post('/register', [UserController::class, 'validate_register']);
 });
 
 Route::group(['middleware' => 'auth'], function(){

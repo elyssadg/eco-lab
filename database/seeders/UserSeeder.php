@@ -21,8 +21,7 @@ class UserSeeder extends Seeder
             'full_name' => 'Elyssa Davina Giovanni',
             'password' => bcrypt('elys123'),
             'gender' => 'female',
-            'birthday' => Carbon::parse('2003-08-28'),
-            'phone_number' => '08112022501'
+            'birthday' => Carbon::parse('2003-08-28')
         ]);
     }
 }
