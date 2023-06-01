@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+    <img src="{{ Storage::url('assets/general/intersect.png') }}" class="absolute top-0 right-0 -z-10 w-2/3 h-auto" alt="background">
+
     <section class="w-[85%] h-screen mx-auto flex items-center">
         <div class="flex">
             <div class="w-1/2 animate-right">
