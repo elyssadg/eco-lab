@@ -21,16 +21,17 @@
         ::-webkit-scrollbar {
             width: 0;
         }
+
+        .text-multiline-3 {
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 3;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     </style>
 </head>
 <body class="relative">
-
-    <style>
-        ::-webkit-scrollbar{
-            overflow-x: hidden;
-        }
-    </style>
-
     <nav class="w-screen">
         <div class="w-[85%] flex items-center justify-between mx-auto py-5">
             <a href="{{ url('/') }}">
@@ -70,6 +71,8 @@
     </div>
 
     @yield('content')
+
+    <img src="{{ Storage::url('assets/general/intersect.png') }}" class="absolute top-0 right-0 -z-10 w-2/3 h-auto" alt="background">
 </body>
 <script>
     $(document).ready(function() {

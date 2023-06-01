@@ -39,7 +39,7 @@ module.exports = {
       animation: {
         right: 'right 0.8s ease-in-out',
         left: 'left 0.8s ease-in-out',
-      }
+      },
     },
   },
   plugins: [],

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ThreadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +25,6 @@ Route::group(['middleware' => 'guest'], function(){
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/logout', [UserController::class, 'logout']);
+    Route::get('/forum', [ThreadController::class, 'discussion_forum']);
+    Route::get('/forum/{id}', [ThreadController::class, 'thread']);
 });
