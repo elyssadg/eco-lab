@@ -804,6 +804,12 @@ video {
 .border-t {
   border-top-width: 1px;
 }
+.border-b {
+  border-bottom-width: 1px;
+}
+.border-b-2 {
+  border-bottom-width: 2px;
+}
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
@@ -811,6 +817,10 @@ video {
 .border-mid {
   --tw-border-opacity: 1;
   border-color: rgb(62 139 101 / var(--tw-border-opacity));
+}
+.border-dark {
+  --tw-border-opacity: 1;
+  border-color: rgb(32 75 56 / var(--tw-border-opacity));
 }
 .border-opacity-50 {
   --tw-border-opacity: 0.5;
