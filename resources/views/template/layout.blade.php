@@ -31,7 +31,7 @@
                     Forum
                 </a>
                 @if (Auth::user())
-                    <div id="profile" class="flex gap-2 items-center px-3 py-1 bg-mid text-white rounded cursor-pointer">
+                    <div id="profile" class="flex gap-2 items-center px-3 py-1 text-dark rounded cursor-pointer">
                         <i class="fa fa-user"></i>
                         <p class="text-subheading font-medium">Hi, {{ Auth::user()->username }}</p>
                     </div>
