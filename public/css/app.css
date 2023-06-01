@@ -551,6 +551,10 @@ video {
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
 }
+.my-10 {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
 .-mt-px {
   margin-top: -1px;
 }
@@ -595,6 +599,12 @@ video {
 }
 .mt-8 {
   margin-top: 2rem;
+}
+.mb-10 {
+  margin-bottom: 2.5rem;
+}
+.mb-20 {
+  margin-bottom: 5rem;
 }
 .block {
   display: block;
@@ -781,6 +791,14 @@ video {
 }
 .gap-y-10 {
   row-gap: 2.5rem;
+}
+.gap-x-\[\] {
+  -moz-column-gap: ;
+       column-gap: ;
+}
+.gap-x-\[5\%\] {
+  -moz-column-gap: 5%;
+       column-gap: 5%;
 }
 .overflow-hidden {
   overflow: hidden;

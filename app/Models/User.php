@@ -45,4 +45,9 @@ class User extends Authenticatable
     public function thread(){
         return $this->hasMany(Thread::class);
     }
+
+    public function like(){
+        return $this->hasMany(Like::class);
+    }
+    
 }

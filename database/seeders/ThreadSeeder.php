@@ -16,7 +16,7 @@ class ThreadSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i = 1; $i <= 3; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             Thread::create([
                 'user_id' => 1, 
                 'title' => $faker->sentence,
@@ -28,7 +28,7 @@ class ThreadSeeder extends Seeder
             ]);
         }
 
-        for ($i = 1; $i <= 3; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             Thread::create([
                 'user_id' => 2, 
                 'title' => $faker->sentence,

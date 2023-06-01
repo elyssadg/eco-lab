@@ -5,7 +5,10 @@
 @endsection
 
 @section('content')
-    <div class="w-[85%] mx-auto my-20 flex flex-wrap gap-y-10 justify-between">
+    <div class="w-[85%] mx-auto mt-10">
+        <p class="text-subname text-dark font-normal">Showing {{ $threads->lastItem() - $threads->firstItem() + 1 }} of {{ $threads->total() }} threads</p>
+    </div>
+    <div class="w-[85%] mx-auto mt-5 mb-10 flex flex-wrap gap-x-[5%] gap-y-10">
         @foreach ($threads as $thread)
             <a href="/forum/{{ $thread->id }}" class="w-[30%] h-max bg-white rounded shadow-md border border-mid border-opacity-50">
                 <div class="flex gap-4 p-5 border-b border-b-mid border-opacity-20">
@@ -33,11 +36,15 @@
                     <div class="flex gap-5">
                         <div class="flex items-center gap-1 text-mid">
                             <i class="far fa-thumbs-up fa-md"></i>
-                            <p class="text-subname font-normal">1</p> {{-- bikin total likes --}}
+                            <p class="text-subname font-normal">
+                                {{ $likes->where('thread_id', $thread->id)->count() }}
+                            </p> 
                         </div>
                         <div class="flex items-center gap-1 text-mid">
                             <i class="far fa-comments fa-md"></i>
-                            <p class="text-subname font-normal">0</p> {{-- bikin total comments --}}
+                            <p class="text-subname font-normal">
+                                {{ $comments->where('thread_id', $thread->id)->count() }}
+                            </p>
                         </div>
                     </div>
                     <button class="text-subname text-mid font-normal hover:text-dark hover:border-b-2 hover:border-b-dark transition-all duration-200">Read More</button>
@@ -45,4 +52,9 @@
             </a>
         @endforeach
     </div>
+
+    <div class="flex justify-center items-center w-[85%] mx-auto mb-20 text-name text-dark font-normal">
+        {{ $threads->links() }}
+    </div>
+    
 @endsection

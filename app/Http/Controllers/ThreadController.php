@@ -9,8 +9,17 @@ class ThreadController extends Controller
 {
     // Forum Page
     public function discussion_forum(){
-        $threads = Thread::all();
-        return view('pages.forum')->with('threads', $threads);
+        $threads = Thread::paginate(9);
+
+        $comment_controller = new CommentController();
+        $comments = $comment_controller->getComment();
+
+        $like_controller = new LikeController();
+        $likes = $like_controller->getLike();
+        return view('pages.forum')
+                ->with('threads', $threads)
+                ->with('comments', $comments)
+                ->with('likes', $likes);
     }
 
     public function thread(Request $request){

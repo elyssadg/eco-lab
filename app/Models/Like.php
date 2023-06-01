@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Thread extends Model
+class Like extends Model
 {
     use HasFactory;
 
@@ -13,8 +13,8 @@ class Thread extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function like(){
-        return $this->hasMany(Like::class);
+    public function thread(){
+        return $this->belongsTo(Thread::class);
     }
 
 }
