@@ -17,7 +17,14 @@
     <!-- JQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<body>
+<body class="relative">
+
+    <style>
+        ::-webkit-scrollbar{
+            overflow-x: hidden;
+        }
+    </style>
+
     <nav class="w-screen">
         <div class="w-[85%] flex items-center justify-between mx-auto py-5">
             <a href="{{ url('/') }}">
@@ -57,6 +64,9 @@
     </div>
 
     @yield('content')
+
+    <img src="{{ Storage::url('assets/general/intersect.png') }}" class="absolute top-0 right-0 z-[-1] w-2/3 h-auto " alt="Image">
+
 </body>
 <script>
     $(document).ready(function() {
