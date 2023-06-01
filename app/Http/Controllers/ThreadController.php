@@ -22,8 +22,19 @@ class ThreadController extends Controller
                 ->with('likes', $likes);
     }
 
-    public function thread(Request $request){
+    public function thread($id){
+        $thread = Thread::find($id);
 
+        $comment_controller = new CommentController();
+        $comments = $comment_controller->getCommentByThread($id);
+
+        $like_controller = new LikeController();
+        $likes = $like_controller->getLikeByThread($id);
+
+        return view('pages.thread')
+                ->with('thread', $thread)
+                ->with('comments', $comments)
+                ->with('likes', $likes);
     }
 
 }

@@ -13,7 +13,11 @@
             <a href="/forum/{{ $thread->id }}" class="w-[30%] h-max bg-white rounded shadow-md border border-mid border-opacity-50">
                 <div class="flex gap-4 p-5 border-b border-b-mid border-opacity-20">
                     <div class="flex justify-center items-center rounded w-10 h-10 bg-light bg-opacity-20">
-                        <i class="fas fa-male fa-lg text-dark"></i>
+                        @if ($thread->user->gender == 'male')
+                            <i class="fas fa-male fa-lg text-dark"></i>
+                        @else
+                            <i class="fas fa-female fa-lg text-dark"></i>
+                        @endif
                     </div>
                     <div>
                         <p class="text-name text-mid font-normal">
