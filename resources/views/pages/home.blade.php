@@ -72,7 +72,7 @@
         <h1 class="text-title text-mid font-bold">Eco-Enzyme Applications</h1>
         <div class="flex justify-between h-max">
             <div class="w-[30%] shadow-md bg-mid bg-opacity-25">
-                <img src="{{ Storage::url('assets/home/applications/fertilizer.png') }}" class="rounded-t" alt="fertilizer image">
+                <img src="{{ Storage::url('assets/home/applications/fertilizer.png') }}" class="rounded-t w-full" alt="fertilizer image">
                 <div class="flex flex-col gap-2 p-5 rounded-b">
                     <h1 class="h-16 text-heading text-dark font-semibold">Eco-Enzyme as Fertilizer</h1>
                     <p class="h-[270px] text-subheading text-dark font-medium">
@@ -81,7 +81,7 @@
                 </div>
             </div>
             <div class="w-[30%] shadow-md">
-                <img src="{{ Storage::url('assets/home/applications/disinfectant.png') }}" class="rounded-t" alt="fertilizer image">
+                <img src="{{ Storage::url('assets/home/applications/disinfectant.png') }}" class="rounded-t w-full" alt="fertilizer image">
                 <div class="flex flex-col gap-2 p-5 bg-mid bg-opacity-25 rounded-b h-fit">
                     <h1 class="h-16 text-heading text-dark font-semibold">Eco-Enzyme as Disinfectant</h1>
                     <p class="h-[270px] text-subheading text-dark font-medium">
@@ -90,7 +90,7 @@
                 </div>
             </div>
             <div class="w-[30%] shadow-md">
-                <img src="{{ Storage::url('assets/home/applications/waste-water.png') }}" class="rounded-t" alt="fertilizer image">
+                <img src="{{ Storage::url('assets/home/applications/waste-water.png') }}" class="rounded-t w-full" alt="fertilizer image">
                 <div class="flex flex-col gap-2 p-5 bg-mid bg-opacity-25 rounded-b h-max">
                     <h1 class="h-16 text-heading text-dark font-semibold">Eco-Enzyme in Wastewater Treatment</h1>
                     <p class="h-[270px] text-subheading text-dark font-medium">

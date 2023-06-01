@@ -31,9 +31,10 @@
                     Forum
                 </a>
                 @if (Auth::user())
-                    <div id="profile" class="flex gap-2 items-center px-3 py-1 text-dark rounded cursor-pointer">
-                        <i class="fa fa-user"></i>
-                        <p class="text-subheading font-medium">Hi, {{ Auth::user()->username }}</p>
+                    <div id="profile" class="flex gap-2 items-center text-mid cursor-pointer transition-all duration-500">
+                        <i id="profile-icon" class="fa fa-user"></i>
+                        <p id="profile-name" class="text-subheading font-medium">Hi, {{ Auth::user()->username }}</p>
+                        <p id="logout" class="text-subheading text-dark font-medium border-b-2 border-dark" style="display: none;">Logout</p>
                     </div>
                 @else
                     <a href="{{ url('/login') }}" class="px-5 py-1 text-subheading text-mid font-medium rounded border-2 border-mid hover:bg-mid hover:text-white hover:shadow-md hover:shadow-mid/25 transition duration-200">
@@ -45,11 +46,11 @@
                 @endif
             </div>
         </div>
-        @if (Auth::user())
+        <!-- @if (Auth::user())
             <div id="logout" class="w-[85%] mx-auto relative" style="display: none;">
-                <a href="{{ url('/logout') }}" class="flex justify-center rounded absolute top-0 -translate-y-4 right-0 w-[154.34px] py-1 bg-white text-subheading text-mid font-medium border border-mid hover:bg-mid hover:text-white transition-all duration-200 cursor-pointer">Logout</a>
+                <a href="{{ url('/logout') }}" class="flex justify-center absolute top-0 -translate-y-4 right-0 w-[154.34px] py-1 text-name text-mid font-medium border-b border-b-solid border-mid hover:border-dark hover:text-dark transition-all duration-200 cursor-pointer">Logout</a>
             </div>
-        @endif
+        @endif -->
     </nav>
 
     <div class="scroll-to-top fixed bottom-5 right-5 z-50 flex items-center rounded-full bg-mid w-max h-max hover:shadow-md hover:shadow-mid/25 cursor-pointer">
@@ -67,16 +68,19 @@
     });
 
     let profile = document.getElementById('profile');
+    let name = document.getElementById('profile-name');
+    let icon = document.getElementById('profile-icon');
     let logout = document.getElementById('logout');
-    var clicked = 0;
-    profile.addEventListener('click', function() {
-        if (clicked == 0) {
-            logout.style.display = 'block';
-            clicked = 1;
-        } else {
-            logout.style.display = 'none';
-            clicked = 0;
-        }
+    profile.addEventListener('mouseover', function() {
+        name.style.display = 'none';
+        icon.style.display = 'none';
+        logout.style.display = 'block';
+    });
+    
+    profile.addEventListener('mouseleave', function() {
+        name.style.display = 'block';
+        icon.style.display = 'block';
+        logout.style.display = 'none';
     });
 </script>
 </html>
