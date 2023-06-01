@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <section class="w-[85%] h-screen mx-auto flex items-center">
+    <section class="w-[85%] h-max mx-auto flex items-center">
         <div class="flex">
             <div class="w-1/2 animate-right">
                 <h1 class="text-title text-mid font-bold">Reduce Organic Food Waste using<br>ECO ENZYME</h1>

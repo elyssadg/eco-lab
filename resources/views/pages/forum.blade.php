@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="w-[85%] mx-auto mt-10">
+    <div class="w-[85%] mx-auto">
         <p class="text-subname text-dark font-normal">Showing {{ $threads->lastItem() - $threads->firstItem() + 1 }} of {{ $threads->total() }} threads</p>
     </div>
     <div class="w-[85%] mx-auto mt-5 mb-10 flex flex-wrap gap-x-[5%] gap-y-10">
@@ -57,7 +57,7 @@
         @endforeach
     </div>
 
-    <div class="flex justify-center items-center w-[85%] mx-auto mb-20 text-name text-dark font-normal">
+    <div class="flex justify-center items-center w-[85%] mx-auto text-name text-dark font-normal">
         {{ $threads->links() }}
     </div>
     

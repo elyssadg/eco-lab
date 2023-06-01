@@ -70,7 +70,9 @@
         <i class="fa fa-solid fa-arrow-up px-5 py-5 text-white"></i>
     </div>
 
-    @yield('content')
+    <section class="my-20">
+        @yield('content')
+    </section>
 
     <img src="{{ Storage::url('assets/general/intersect.png') }}" class="absolute top-0 right-0 -z-10 w-2/3 h-auto" alt="background">
 </body>
