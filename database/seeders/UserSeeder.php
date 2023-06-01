@@ -23,5 +23,14 @@ class UserSeeder extends Seeder
             'gender' => 'female',
             'birthday' => Carbon::parse('2003-08-28')
         ]);
+
+        User::create([
+            'email' => 'guido@gmail.com',
+            'username' => 'guido',
+            'full_name' => 'Guido William',
+            'password' => bcrypt('guido123'),
+            'gender' => 'male',
+            'birthday' => Carbon::parse('2003-11-11')
+        ]);
     }
 }

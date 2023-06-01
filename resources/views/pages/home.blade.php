@@ -21,7 +21,7 @@
     </section>
 
     <section id="introduction" class="w-[85%] h-max mx-auto flex flex-col gap-5">
-        <h1 class="text-title text-mid font-bold">What is Eco-Enzyme?</h1>
+        <h1 class="mt-10 text-title text-mid font-bold">What is Eco-Enzyme?</h1>
         <div class="flex justify-between h-full">
             <img src="{{ Storage::url('assets/home/eco-enzyme.jpg') }}" class="w-[47.5%] rounded" alt="eco-enzyme image">
             <div class="w-[47.5%] h-max flex flex-col gap-10">
