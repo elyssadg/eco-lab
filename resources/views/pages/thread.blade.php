@@ -46,18 +46,52 @@
 
                 <hr class="bg-mid bg-opacity-20 h-[2px]">
 
-                <form action="" class="w-1/2 flex flex-col gap-5">
-                    <textarea class="w-full rounded border-0 outline-none py-2 px-3 text-name text-dark font-medium ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-subname placeholder:font-normal focus:ring-2 focus:ring-inset focus:ring-mid focus:shadow-md" placeholder="Type here to reply"></textarea>
+                <form action="/forum/{{ $thread->id }}/comment" method="POST" class="w-1/2 flex flex-col gap-5">
+                    {{ csrf_field() }}
+                    <textarea id="comment" name="comment" class="w-full rounded border-0 outline-none py-2 px-3 text-name text-dark font-medium ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-subname placeholder:font-normal focus:ring-2 focus:ring-inset focus:ring-mid focus:shadow-md" placeholder="Type here to reply"></textarea>
+                    @if ($errors->any())
+                        <div class="mt-2 text-name text-red-500 font-medium">
+                            {{ $errors->first() }}
+                        </div>
+                    @endif
                     <button type="submit" class="w-1/2 px-3 py-1.5 rounded bg-mid text-subheading font-medium text-white transition-all duration-200 hover:shadow-md hover:shadow-mid/25">Post Comment</button>
                 </form>
             </div>
 
             <!-- Comments -->
-            @if ($thread->comment->count() == 0)
-                <p class="text-name text-mid font-normal">No comments yet</p>
-                <p>Be the first to comment!</p>
-            @else
-            @endif
+            <div class="mt-10">
+                @if ($thread->comment->count() == 0)
+                    <p class="text-name text-mid font-medium">No comments yet</p>
+                    <p class="text-subname text-mid font-normal">Be the first to comment!</p>
+                @else
+                    <p class="text-name text-mid font-medium">{{ $thread->comment->count() }} Comments</p>
+                    <div class="flex flex-col gap-5 pt-5">
+                        @foreach ($thread->comment as $c)
+                            <div class="flex gap-4">
+                                <div class="flex justify-center items-center rounded w-10 h-10 bg-light bg-opacity-20">
+                                    @if ($c->user->gender == 'male')
+                                        <i class="fas fa-male fa-lg text-dark"></i>
+                                    @else
+                                        <i class="fas fa-female fa-lg text-dark"></i>
+                                    @endif
+                                </div>
+                                <div>
+                                    <p class="text-name text-mid font-normal">
+                                        {{ $c->user->username }}
+                                    </p>
+                                    <p class="text-[0.625rem] text-mid font-normal">
+                                        {{ $c->posting_date }}
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="text->subheading text-dark font-medium">{{ $c->message }}</p>
+                            @if (!$loop->last)
+                                <hr class="bg-mid bg-opacity-20 h-[2px]">
+                            @endif
+                        @endforeach
+                    </div>
+                @endif
+            </div>
         </div>
         <!-- Right Side -->
         <div class="w-[30%] h-max flex flex-col gap-5">

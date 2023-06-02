@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThreadController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +28,5 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/logout', [UserController::class, 'logout']);
     Route::get('/forum', [ThreadController::class, 'discussion_forum']);
     Route::get('/forum/{id}', [ThreadController::class, 'thread']);
+    Route::post('/forum/{id}/comment', [CommentController::class, 'comment']);
 });
