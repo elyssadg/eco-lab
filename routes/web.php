@@ -17,7 +17,7 @@ use App\Http\Controllers\ThreadController;
 
 Route::get('/', function () { return view('pages.home'); });
 Route::group(['middleware' => 'guest'], function(){
-    Route::get('/login', [UserController::class, 'login']);
+    Route::get('/login', [UserController::class, 'login'])->name('login');
     Route::post('/login', [UserController::class, 'validate_login']);
     Route::get('/register', [UserController::class, 'register']);
     Route::post('/register', [UserController::class, 'validate_register']);

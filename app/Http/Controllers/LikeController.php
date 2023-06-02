@@ -12,9 +12,4 @@ class LikeController extends Controller
         return Like::all();
     }
 
-    // Get Likes Data by thread_id
-    public function getLikeByThread($thread_id){
-        return Like::where('thread_id', $thread_id)->get();
-    }
-
 }

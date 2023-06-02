@@ -41,13 +41,13 @@
                         <div class="flex items-center gap-1 text-mid">
                             <i class="far fa-thumbs-up fa-md"></i>
                             <p class="text-subname font-normal">
-                                {{ $likes->where('thread_id', $thread->id)->count() }}
+                                {{ $thread->like->count() }}
                             </p> 
                         </div>
                         <div class="flex items-center gap-1 text-mid">
                             <i class="far fa-comments fa-md"></i>
                             <p class="text-subname font-normal">
-                                {{ $comments->where('thread_id', $thread->id)->count() }}
+                                {{ $thread->comment->count() }}
                             </p>
                         </div>
                     </div>
