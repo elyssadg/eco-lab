@@ -5,6 +5,23 @@
 @endsection
 
 @section('content')
+
+    <style>
+        @keyframes floatingAnimation {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+        }
+    </style>
+
     <section class="w-[85%] h-max mx-auto flex items-center">
         <div class="flex">
             <div class="w-1/2 animate-right">
@@ -14,7 +31,7 @@
                     Get Started >>
                 </a>
             </div>
-            <img src="{{ Storage::url('assets/home/waste-management.png') }}" class="w-1/2 mt-14 animate-left" alt="">
+            <img src="{{ Storage::url('assets/home/waste-management.png') }}" class="w-1/2 mt-14 animate-left" style="animation: floatingAnimation 3s infinite ease-in-out;" alt="">
         </div>
     </section>
 
@@ -45,7 +62,7 @@
                         </div>
                         <p class="w-[90%] text-subheading text-dark font-medium">In a container, mix the organic kitchen waste, water, and sugar with 3:10:1 ratio until well combined. You can use tap water, well water, air conditioning waste water, or mineral water. For the sugar source, you can use brown sugar, coconut sugar, or molasses.</p>
                     </div>
-    
+
                     <div class="flex justify-between">
                         <div class="w-10 h-10 rounded-full bg-mid flex items-center justify-center">
                             <p class="text-heading text-white font-bold">
@@ -54,7 +71,7 @@
                         </div>
                         <p class="w-[90%] text-subheading text-dark font-medium">Let the mixture be fermented for a minimum of 3 months. In the first month, alcohol will be produced. In the second month, vinegar will be produced. Finally, in the third month, the enzyme wil be produced.</p>
                     </div>
-    
+
                     <div class="flex justify-between">
                         <div class="w-10 h-10 rounded-full bg-mid flex items-center justify-center">
                             <p class="text-heading text-white font-bold">
