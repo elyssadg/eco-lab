@@ -649,6 +649,9 @@ video {
   height: -moz-max-content;
   height: max-content;
 }
+.h-screen {
+  height: 100vh;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -784,6 +787,9 @@ video {
 }
 .gap-8 {
   gap: 2rem;
+}
+.gap-y-10 {
+  row-gap: 2.5rem;
 }
 .gap-x-\[5\%\] {
   -moz-column-gap: 5%;
