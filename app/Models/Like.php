@@ -9,6 +9,9 @@ class Like extends Model
 {
     use HasFactory;
 
+    // protected $primaryKey = ['thread_id', 'user_id'];
+    // public $incrementing = false;
+
     public function user(){
         return $this->belongsTo(User::class);
     }

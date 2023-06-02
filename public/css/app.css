@@ -950,17 +950,14 @@ video {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
 }
-.pt-8 {
-  padding-top: 2rem;
-}
 .pt-0 {
   padding-top: 0px;
 }
-.pb-0 {
-  padding-bottom: 0px;
-}
 .pt-5 {
   padding-top: 1.25rem;
+}
+.pt-8 {
+  padding-top: 2rem;
 }
 .text-center {
   text-align: center;
@@ -1049,9 +1046,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-.text-opacity-50 {
-  --tw-text-opacity: 0.5;
 }
 .underline {
   text-decoration-line: underline;
@@ -1156,6 +1150,10 @@ video {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+.hover\:text-mid:hover {
+  --tw-text-opacity: 1;
+  color: rgb(62 139 101 / var(--tw-text-opacity));
 }
 .hover\:underline:hover {
   text-decoration-line: underline;

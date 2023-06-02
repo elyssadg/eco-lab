@@ -37,8 +37,18 @@
                     </p>
                 </div>
 
-                <div class="flex items-center gap-1 text-mid">
-                    <i class="far fa-thumbs-up fa-lg p-2 hover:bg-light hover:bg-opacity-20 hover:rounded"></i>
+                <div class="flex items-center gap-2">
+                    @if (Auth::user()->like->where('thread_id', $thread->id)->first())
+                        <form method="POST" action="/forum/{{ $thread->id }}/unlike">
+                            {{ csrf_field() }}
+                            <button><i class="far fa-thumbs-up fa-lg p-2 rounded bg-light bg-opacity-20 text-mid"></i></button>
+                        </form>
+                    @else
+                        <form method="POST" action="/forum/{{ $thread->id }}/like">
+                            {{ csrf_field() }}
+                            <button><i class="far fa-thumbs-up fa-lg p-2 text-mid hover:bg-light hover:bg-opacity-20 hover:rounded"></i></button>
+                        </form>
+                    @endif
                     <p class="text-subheading font-medium">
                         {{ $thread->like->count() }}
                     </p> 

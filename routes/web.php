@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ThreadController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('/forum', [ThreadController::class, 'discussion_forum']);
     Route::get('/forum/{id}', [ThreadController::class, 'thread']);
     Route::post('/forum/{id}/comment', [CommentController::class, 'comment']);
+    Route::post('/forum/{id}/like', [LikeController::class, 'like']);
+    Route::post('/forum/{id}/unlike', [LikeController::class, 'unlike']);
 });
