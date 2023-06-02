@@ -27,7 +27,7 @@ Route::group(['middleware' => 'guest'], function(){
 
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/logout', [UserController::class, 'logout']);
-    Route::get('/forum', [ThreadController::class, 'discussion_forum']);
+    Route::get('/forum', [ThreadController::class, 'discussion_forum'])->name('forum');
     Route::get('/forum/{id}', [ThreadController::class, 'thread']);
     Route::post('/forum/{id}/comment', [CommentController::class, 'comment']);
     Route::post('/forum/{id}/like', [LikeController::class, 'like']);

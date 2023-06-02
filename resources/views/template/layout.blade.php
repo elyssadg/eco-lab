@@ -38,12 +38,12 @@
                 <img src="{{ Storage::url('assets/general/logo.png') }}" class="h-10 mr-3" alt="EcoLab" />
             </a>
             <div class="w-max flex gap-5 items-center">
-                <a href="{{ url('/calculator') }}" class="text-subheading text-mid font-medium hover:text-dark hover:border-b-2 hover:border-dark transition duration-500">
+                <a href="{{ url('/calculator') }}" class="text-subheading {{ (Request::route()->getName() == 'calculator') ? 'text-dark border-b-2 border-dark' : 'text-mid hover:text-dark hover:border-b-2 hover:border-dark' }} font-medium transition duration-500">
                     Calculator
                 </a>
                 
                 @if (Auth::user())
-                    <a href="{{ url('/forum') }}" class="text-subheading text-mid font-medium hover:text-dark hover:border-b-2 hover:border-dark transition duration-500">
+                    <a href="{{ url('/forum') }}" class="text-subheading {{ (Request::route()->getName() == 'forum') ? 'text-dark border-b-2 border-dark' : 'text-mid hover:text-dark hover:border-b-2 hover:border-dark' }} font-medium transition duration-500">
                         Forum
                     </a>
                     <div id="profile" class="flex gap-2 items-center text-mid cursor-pointer">

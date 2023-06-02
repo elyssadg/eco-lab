@@ -31,7 +31,7 @@
                     Get Started >>
                 </a>
             </div>
-            <img src="{{ Storage::url('assets/home/waste-management.png') }}" class="w-1/2 mt-14 animate-left" style="animation: floatingAnimation 3s infinite ease-in-out;" alt="">
+            <img src="{{ Storage::url('assets/home/waste-management.png') }}" class="w-1/2 mt-10" style="animation: floatingAnimation 3s infinite ease-in-out;" alt="">
         </div>
     </section>
 
