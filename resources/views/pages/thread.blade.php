@@ -51,7 +51,7 @@
                     @endif
                     <p class="text-subheading font-medium">
                         {{ $thread->like->count() }}
-                    </p> 
+                    </p>
                 </div>
 
                 <hr class="bg-mid bg-opacity-20 h-[2px]">

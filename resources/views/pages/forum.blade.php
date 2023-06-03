@@ -42,7 +42,7 @@
                             <i class="far fa-thumbs-up fa-md"></i>
                             <p class="text-subname font-normal">
                                 {{ $thread->like->count() }}
-                            </p> 
+                            </p>
                         </div>
                         <div class="flex items-center gap-1 text-mid">
                             <i class="far fa-comments fa-md"></i>
@@ -58,7 +58,7 @@
     </div>
 
     <div class="flex justify-center items-center w-[85%] mx-auto text-name text-dark font-normal">
-        {{ $threads->links() }}
+        {{ $threads->links('custom-pagination') }}
     </div>
-    
+
 @endsection
