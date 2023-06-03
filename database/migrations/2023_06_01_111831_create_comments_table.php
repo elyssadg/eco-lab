@@ -32,11 +32,6 @@ class CreateCommentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('comments', function (Blueprint $table) {
-            $table->dropForeign(['replied_to']);
-            $table->dropColumn('replied_to');
-        });
-    
         Schema::dropIfExists('comments');
     }
 }
