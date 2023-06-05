@@ -6,7 +6,7 @@
 
 @section('authentication_form')
     <div class="py-28 w-full flex flex-col justify-center items-center gap-12">
-        <img src="{{ Storage::url('assets/general/logo.png') }}" class="h-10" alt="">
+        <a href="{{ url('/') }}"><img src="{{ Storage::url('assets/general/logo.png') }}" class="h-10" alt=""></a>
         <h1 class="text-title text-mid font-bold">Hello</h1>
         <p class="text-name text-dark font-medium">Create a new account</p>
         <form class="w-8/12" action="/register" method="POST">

@@ -5,7 +5,7 @@
 @endsection
 
 @section('authentication_form')
-    <img src="{{ Storage::url('assets/general/logo.png') }}" class="h-10" alt="">
+    <a href="{{ url('/') }}"><img src="{{ Storage::url('assets/general/logo.png') }}" class="h-10" alt=""></a>
     <h1 class="text-title text-mid font-bold">Welcome Back!</h1>
     <p class="text-name text-dark font-medium">Login to your account</p>
     <form class="w-8/12" action="/login" method="POST">

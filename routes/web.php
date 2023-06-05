@@ -18,6 +18,8 @@ use App\Http\Controllers\LikeController;
 */
 
 Route::get('/', function () { return view('pages.home'); });
+Route::get('/calculator', function () { return view('pages.calculator'); })->name('calculator');
+
 Route::group(['middleware' => 'guest'], function(){
     Route::get('/login', [UserController::class, 'login'])->name('login');
     Route::post('/login', [UserController::class, 'validate_login']);
