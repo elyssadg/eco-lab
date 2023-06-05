@@ -37,6 +37,12 @@
                     </p>
                 </div>
 
+                @if ($thread->image)
+                    <div>
+                        <img class="w-full h-auto" src="{{ Storage::url('assets/thread-image/'.$thread->image) }}" alt="">
+                    </div>
+                @endif
+
                 <div class="flex items-center gap-2">
                     @if (Auth::user()->like->where('thread_id', $thread->id)->first())
                         <form method="POST" action="/forum/{{ $thread->id }}/unlike">
@@ -74,7 +80,7 @@
                     <p class="text-name text-mid font-medium">No comments yet</p>
                     <p class="text-subname text-mid font-normal">Be the first to comment!</p>
                 @else
-                    <p class="text-name text-mid font-medium">{{ $thread->comment->count() }} Comments</p>
+                    <p class="text-name text-mid font-medium">{{ $thread->comment->count() }} @if ($thread->comment->count() == 1) Comment @else Comments @endif</p>
                     <div class="flex flex-col gap-5 pt-5">
                         @foreach ($thread->comment as $c)
                             <div class="flex gap-4">
