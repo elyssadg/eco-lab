@@ -37,7 +37,7 @@
                     </p>
                 </div>
 
-                @if ($thread->image)
+                @if ($thread->image != 'null')
                     <div>
                         <img class="w-full h-auto" src="{{ Storage::url('assets/thread-image/'.$thread->image) }}" alt="">
                     </div>
