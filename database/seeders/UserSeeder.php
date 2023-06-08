@@ -32,5 +32,41 @@ class UserSeeder extends Seeder
             'gender' => 'male',
             'birthday' => Carbon::parse('2003-11-11')
         ]);
+
+        User::create([
+            'email' => 'vincentius@gmail.com',
+            'username' => 'vincentius',
+            'full_name' => 'Vincentius Jericho',
+            'password' => bcrypt('vije123'),
+            'gender' => 'male',
+            'birthday' => Carbon::parse('2003-12-17')
+        ]);
+
+        User::create([
+            'email' => 'desu@gmail.com',
+            'username' => 'desu',
+            'full_name' => 'Devin Suhandi',
+            'password' => bcrypt('desu123'),
+            'gender' => 'male',
+            'birthday' => Carbon::parse('2004-01-09')
+        ]);
+
+        User::create([
+            'email' => 'delu@gmail.com',
+            'username' => 'delu',
+            'full_name' => 'Devin Luize Saan',
+            'password' => bcrypt('delu123'),
+            'gender' => 'male',
+            'birthday' => Carbon::parse('2003-11-11')
+        ]);
+
+        User::create([
+            'email' => 'kelson@gmail.com',
+            'username' => 'kelson',
+            'full_name' => 'Kelson Edbert Susilo',
+            'password' => bcrypt('kelson123'),
+            'gender' => 'male',
+            'birthday' => Carbon::parse('2003-07-05')
+        ]);
     }
 }

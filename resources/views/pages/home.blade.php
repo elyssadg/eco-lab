@@ -8,17 +8,17 @@
 
     <style>
         @keyframes floatingAnimation {
-        0% {
-            transform: translateY(0);
-        }
+            0% {
+                transform: translateY(0);
+            }
 
-        50% {
-            transform: translateY(-10px);
-        }
+            50% {
+                transform: translateY(-10px);
+            }
 
-        100% {
-            transform: translateY(0);
-        }
+            100% {
+                transform: translateY(0);
+            }
         }
     </style>
 
@@ -80,6 +80,10 @@
                         </div>
                         <p class="w-[90%] text-subheading text-dark font-medium">After 3 months, the eco-enzyme can be harvested by filtering the fermented mixture. The residue . from the filtering process can be used to make eco-enzyme-based compose.</p>
                     </div>
+
+                    <a href="{{ url('/calculator') }}" class="flex justify-center w-full py-1 text-subheading text-white bg-mid font-medium rounded border-2 border-mid hover:shadow-md hover:shadow-mid/25 transition duration-200">
+                        Try Eco-Enzyme Calculator
+                    </a>
                 </div>
             </div>
         </div>

@@ -14,24 +14,18 @@ class LikeSeeder extends Seeder
      */
     public function run()
     {
-        Like::create([
-            'thread_id' => 1,
-            'user_id' => 1
-        ]);
+        $uniqueLikes = [];
 
-        Like::create([
-            'thread_id' => 1,
-            'user_id' => 2
-        ]);
+        for ($i = 0; $i < 120; $i++) {
+            $userId = rand(1, 6);
+            $threadId = rand(1, 6);
 
-        Like::create([
-            'thread_id' => 2,
-            'user_id' => 1
-        ]);
+            $like = ['thread_id' => $threadId, 'user_id' => $userId];
 
-        Like::create([
-            'thread_id' => 9,
-            'user_id' => 1
-        ]);
+            if (!in_array($like, $uniqueLikes)) {
+                Like::create($like);
+                $uniqueLikes[] = $like;
+            }
+        }
     }
 }
