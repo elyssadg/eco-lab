@@ -6,7 +6,7 @@
 
 @section('authentication_form')
     <div class="py-28 w-full flex flex-col justify-center items-center gap-12">
-        <a href="{{ url('/') }}"><img src="{{ Storage::url('assets/general/logo.png') }}" class="h-10" alt=""></a>
+        <a href="{{ url('/') }}"><img src="{{ Storage::url('assets/general/logo.png') }}" class="h-10" alt="></a>
         <h1 class="text-title text-mid font-bold">Hello</h1>
         <p class="text-name text-dark font-medium">Create a new account</p>
         <form class="w-8/12" action="/register" method="POST">
@@ -14,14 +14,14 @@
             <div>
                 <label for="full_name" class="text-name text-dark font-medium">Full Name</label>
                 <div class="mt-2">
-                    <input type="text" id="full_name" name="full_name" required class="w-full rounded border-0 outline-none py-1.5 px-3 text-name text-dark font-medium ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-subname placeholder:font-normal focus:ring-2 focus:ring-inset focus:ring-mid focus:shadow-md" placeholder="Full Name"">
+                    <input type="text" id="full_name" name="full_name" required class="w-full rounded border-0 outline-none py-1.5 px-3 text-name text-dark font-medium ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-subname placeholder:font-normal focus:ring-2 focus:ring-inset focus:ring-mid focus:shadow-md" placeholder="Full Name">
                 </div>
             </div>
     
             <div class="mt-5">
                 <label for="username" class="text-name text-dark font-medium">Username</label>
                 <div class="mt-2">
-                    <input type="text" id="username" name="username" required class="w-full rounded border-0 outline-none py-1.5 px-3 text-name text-dark font-medium ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-subname placeholder:font-normal focus:ring-2 focus:ring-inset focus:ring-mid focus:shadow-md" placeholder="Username"">
+                    <input type="text" id="username" name="username" required class="w-full rounded border-0 outline-none py-1.5 px-3 text-name text-dark font-medium ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-subname placeholder:font-normal focus:ring-2 focus:ring-inset focus:ring-mid focus:shadow-md" placeholder="Username">
                 </div>
             </div>
     
