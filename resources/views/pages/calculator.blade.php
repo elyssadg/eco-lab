@@ -20,32 +20,32 @@
                     <div class="flex justify-between items-center">
                         <img src="{{ Storage::url('assets/calculator/eco-enzyme.png') }}" alt="eco-enzyme logo" class="w-[5%] h-auto">
                         <div class="relative w-[92%] flex border border-light rounded">
-                            <div id="container-fill" class="w-full p-5 bg-light h-full"></div>
-                            <div id="container-blank"></div>
+                            <div id="enzyme-fill" class="w-full p-5 bg-light h-full"></div>
+                            <div id="enzyme-blank"></div>
                             <p id="total-enzyme" class="absolute right-2 top-1/2 -translate-y-1/2 text-subheading text-dark font-medium">.. liter</p>
                         </div>
                     </div>
                     <div class="flex justify-between mt-5 items-center">
                         <img src="{{ Storage::url('assets/calculator/waste.png') }}" alt="waste logo" class="w-[5%] h-auto">
                         <div class="relative w-[92%] flex border border-black rounded">
-                            <div id="container-fill" class="w-[60%] p-5 bg-black"></div>
-                            <div id="container-blank" class="w-[40%] bg-white p-5 rounded-r"></div>
+                            <div id="waste-fill" class="w-[60%] p-5 bg-black"></div>
+                            <div id="waste-blank" class="w-[40%] bg-white p-5 rounded-r"></div>
                             <p id="total-waste" class="absolute right-2 top-1/2 -translate-y-1/2 text-subheading text-black font-medium">.. kg</p>
                         </div>
                     </div>
                     <div class="flex justify-between mt-5 items-center">
                         <img src="{{ Storage::url('assets/calculator/water.png') }}" alt="waste logo" class="w-[5%] h-auto">
                         <div class="relative w-[92%] flex border border-dark rounded">
-                            <div id="container-fill" class="w-[10%] p-5 bg-dark"></div>
-                            <div id="container-blank" class="w-[90%] bg-white p-5 rounded-r"></div>
+                            <div id="water-fill" class="w-[10%] p-5 bg-dark"></div>
+                            <div id="water-blank" class="w-[90%] bg-white p-5 rounded-r"></div>
                             <p id="total-water" class="absolute right-2 top-1/2 -translate-y-1/2 text-subheading text-dark font-medium">.. liter</p>
                         </div>
                     </div>
                     <div class="flex justify-between mt-5 items-center">
                         <img src="{{ Storage::url('assets/calculator/sugar.png') }}" alt="sugar logo" class="w-[5%] h-auto">
                         <div class="relative w-[92%] flex border border-mid rounded">
-                            <div id="container-fill" class="w-[30%] p-5 bg-mid"></div>
-                            <div id="container-blank" class="w-[70%] bg-white p-5 rounded-r"></div>
+                            <div id="sugar-fill" class="w-[30%] p-5 bg-mid"></div>
+                            <div id="sugar-blank" class="w-[70%] bg-white p-5 rounded-r"></div>
                             <p id="total-sugar" class="absolute right-2 top-1/2 -translate-y-1/2 text-subheading text-mid font-medium">.. kg</p>
                         </div>
                     </div>
@@ -114,9 +114,9 @@
     <script>
         function changeText(enzyme, waste, water, sugar){
             document.getElementById("total-enzyme").innerHTML = enzyme.value.toString() + " liter"
-            document.getElementById("total-waste").innerHTML = waste.value.toString() + " liter"
+            document.getElementById("total-waste").innerHTML = waste.value.toString() + " kg"
             document.getElementById("total-water").innerHTML = water.value.toString() + " liter"
-            document.getElementById("total-sugar").innerHTML = sugar.value.toString() + " liter"
+            document.getElementById("total-sugar").innerHTML = sugar.value.toString() + " kg"
         }
 
         document.getElementById("enzyme-volume").addEventListener('input', (e) => {
