@@ -19,7 +19,7 @@ class CreateCommentsTable extends Migration
             $table->foreign('thread_id')->references('id')->on('threads')->onDelete('cascade')->onUpdate('cascade');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('message');
+            $table->string('message', 1000);
             $table->timestamp('posting_date');
             $table->timestamps();
         });
