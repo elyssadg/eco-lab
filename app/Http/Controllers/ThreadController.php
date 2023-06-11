@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ThreadResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Validator;
@@ -23,7 +24,7 @@ class ThreadController extends Controller
     public function thread($id){
         $thread = Thread::find($id);
         $threads = Thread::all();
-        
+
         $popular_threads = collect($threads)->sortByDesc(function ($thread) {
             return $thread->like->count();
         })->take(3);
@@ -35,7 +36,18 @@ class ThreadController extends Controller
                 ->with('unanswered_threads', $unanswered_threads)
                 ->with('thread', $thread);
     }
+    public function thread_api(){
+        $threads = Thread::all();
+        // $unanswered_threads = Thread::doesntHave('comment')->take(3)->get();
 
+        // return response()->json(['data'=>$threads]);
+        return ThreadResource::collection($threads);
+    }
+    public function show_api($id){
+        $threads = Thread::find($id);
+        // return response()->json(['data'=>$threads]);
+        return new ThreadResource($threads);
+    }
     // Add New Thread
     public function post_thread(Request $request){
         $validation = [
@@ -48,10 +60,11 @@ class ThreadController extends Controller
         if($validator->fails()){
             $error_message = $validator->errors()->first();
             return response()->json([
-                'error' => true, 
+                'error' => true,
                 'error_message' => $error_message
             ]);
         }
+
 
         $thread = new Thread();
         $thread->user_id = Auth::user()->id;

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ThreadController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 Route::get('/posts',[ThreadController::class,'thread_api'])->middleware(['auth:sanctum']);
 Route::get('/posts/{id}',[ThreadController::class,'show_api'])->middleware(['auth:sanctum']);
+
