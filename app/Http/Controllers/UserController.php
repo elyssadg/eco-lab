@@ -12,7 +12,7 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    
+
     // Login View
     public function login(){
         return view('auth.login');
@@ -28,7 +28,7 @@ class UserController extends Controller
 
         // Remember Me
         $remember = $request->remember;
-        
+
         // Valid
         if(Auth::attempt($credentials, true)){
             if($remember){
@@ -40,16 +40,43 @@ class UserController extends Controller
             }
             return redirect('/');
         }
-        
+
         // Not Valid
         return redirect()->back();
     }
+    //login_api
+    public function login_api(Request $request)
+    {
+        $email = $request->email;
+        $password = $request->password;
 
+        // Retrieve the account based on the email
+        $account = User::where([
+            'email'=>$email,
+        ])->first();
+        if ($account && Hash::check($password,$account->password)) {
+            // Credentials are valid, generate a token for the account
+            $token = $account->createToken('user',['forum']);
+            return [
+                'token' => $token->plainTextToken
+            ];
+        }
+        // Invalid credentials
+        return ['error' => 'Invalid credentials'];
+    }
     // Register View
     public function register(){
         return view('auth.register');
     }
-
+    public function register_api(Request $request)
+    {
+        $account = User::create($request->all());
+        if ($account) {
+            // Credentials are valid, generate a token for the account
+            $token = $account->createToken('user',['forum']);
+            return ['token' => $token->plainTextToken];
+        }
+    }
     // Register Validation
     public function validate_register(Request $request){
         $validation = [

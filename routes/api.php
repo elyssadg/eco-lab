@@ -17,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/posts',[ThreadController::class,'thread_api'])->middleware(['auth:sanctum']);
+Route::get('/posts/{id}',[ThreadController::class,'show_api'])->middleware(['auth:sanctum']);
