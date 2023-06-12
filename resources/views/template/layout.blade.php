@@ -41,20 +41,17 @@
                 <a href="{{ url('/calculator') }}" class="text-subheading {{ (Request::route()->getName() == 'calculator') ? 'text-dark border-b-2 border-dark' : 'text-mid hover:text-dark hover:border-b-2 hover:border-dark' }} font-medium transition duration-500">
                     Calculator
                 </a>
+                <a href="{{ url('/forum') }}" class="text-subheading {{ (Request::route()->getName() == 'forum') ? 'text-dark border-b-2 border-dark' : 'text-mid hover:text-dark hover:border-b-2 hover:border-dark' }} font-medium transition duration-500">
+                    Forum
+                </a>
                 
                 @if (Auth::user())
-                    <a href="{{ url('/forum') }}" class="text-subheading {{ (Request::route()->getName() == 'forum') ? 'text-dark border-b-2 border-dark' : 'text-mid hover:text-dark hover:border-b-2 hover:border-dark' }} font-medium transition duration-500">
-                        Forum
-                    </a>
                     <div id="profile" class="flex gap-2 items-center text-mid cursor-pointer">
                         <i id="profile-icon" class="fa fa-user transition-all duration-500"></i>
                         <p id="profile-name" class="text-subheading font-medium transition-all duration-500">Hi, {{ Auth::user()->username }}</p>
                         <a href="{{ url('/logout') }}" id="logout" class="text-subheading text-dark font-medium border-b-2 border-dark transition-all duration-500" style="display: none;">Logout</a>
                     </div>
                 @else
-                    <a href="{{ url('/login') }}" class="text-subheading text-mid font-medium hover:text-dark hover:border-b-2 hover:border-dark transition duration-500">
-                        Forum
-                    </a>
                     <a href="{{ url('/login') }}" class="px-5 py-1 text-subheading text-mid font-medium rounded border-2 border-mid hover:bg-mid hover:text-white hover:shadow-md hover:shadow-mid/25 transition duration-200">
                         Sign In
                     </a>

@@ -8,7 +8,9 @@
     <div class="w-[85%] mx-auto">
         <div class="flex justify-between items-center">
             <p class="text-subname text-dark font-normal">Showing {{ $threads->lastItem() - $threads->firstItem() + 1 }} of {{ $threads->total() }} threads</p>
-            <button id="thread-btn" class="px-5 py-1.5 rounded bg-mid text-subheading font-medium text-white transition-all duration-200 hover:shadow-md hover:shadow-mid/25">New Thread</button>
+            @if (Auth::user())
+                <button id="thread-btn" class="px-5 py-1.5 rounded bg-mid text-subheading font-medium text-white transition-all duration-200 hover:shadow-md hover:shadow-mid/25">New Thread</button>
+            @endif
         </div>
     </div>
     <div class="w-[85%] mx-auto mt-5 mb-10 flex flex-wrap gap-x-[5%] gap-y-10">
@@ -94,44 +96,46 @@
         </form>
     </div>
 
-    <script>
-        let modal = document.getElementById('new-thread');
-        let layer = document.getElementById('layer');
-        let thread_btn = document.getElementById('thread-btn');
+    @if (Auth::user())
+        <script>
+            let modal = document.getElementById('new-thread');
+            let layer = document.getElementById('layer');
+            let thread_btn = document.getElementById('thread-btn');
 
-        thread_btn.addEventListener('click', function() {
-            modal.style.display = 'block';
-            layer.style.display = 'block';
-        });
+            thread_btn.addEventListener('click', function() {
+                modal.style.display = 'block';
+                layer.style.display = 'block';
+            });
 
-        layer.addEventListener('click', function() {
-            modal.style.display = 'none';
-            layer.style.display = 'none';
-        });
-        
-        $(document).ready(function() {
-            $('#new-thread-form').submit(function(e) {
-                e.preventDefault();
-                var form_data = new FormData(this);
-                $.ajax({
-                    url: '/forum/add',
-                    method: 'POST',
-                    data: form_data,
-                    dataType: 'json',
-                    contentType: false,
-                    processData: false,
-                    success: function(response) {
-                        if (response.error) {
-                            $('#form-errors').text(response.error_message).show();
-                        } else {
-                            window.location.href = response.redirect;
+            layer.addEventListener('click', function() {
+                modal.style.display = 'none';
+                layer.style.display = 'none';
+            });
+            
+            $(document).ready(function() {
+                $('#new-thread-form').submit(function(e) {
+                    e.preventDefault();
+                    var form_data = new FormData(this);
+                    $.ajax({
+                        url: '/forum/add',
+                        method: 'POST',
+                        data: form_data,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false,
+                        success: function(response) {
+                            if (response.error) {
+                                $('#form-errors').text(response.error_message).show();
+                            } else {
+                                window.location.href = response.redirect;
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(error);
                         }
-                    },
-                    error: function(xhr, status, error) {
-                        console.error(error);
-                    }
+                    });
                 });
             });
-        });
-    </script>
+        </script>
+    @endif
 @endsection

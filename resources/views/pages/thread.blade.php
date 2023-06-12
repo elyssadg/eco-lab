@@ -44,13 +44,18 @@
                 @endif
 
                 <div class="flex items-center gap-2">
-                    @if (Auth::user()->like->where('thread_id', $thread->id)->first())
+                    @if (Auth::user() && Auth::user()->like->where('thread_id', $thread->id)->first())
                         <form method="POST" action="/forum/{{ $thread->id }}/unlike">
                             {{ csrf_field() }}
                             <button><i class="far fa-thumbs-up fa-lg p-2 rounded bg-light bg-opacity-20 text-mid"></i></button>
                         </form>
-                    @else
+                    @elseif (Auth::user())
                         <form method="POST" action="/forum/{{ $thread->id }}/like">
+                            {{ csrf_field() }}
+                            <button><i class="far fa-thumbs-up fa-lg p-2 text-mid hover:bg-light hover:bg-opacity-20 hover:rounded"></i></button>
+                        </form>
+                    @else
+                        <form action="/login">
                             {{ csrf_field() }}
                             <button><i class="far fa-thumbs-up fa-lg p-2 text-mid hover:bg-light hover:bg-opacity-20 hover:rounded"></i></button>
                         </form>
@@ -60,18 +65,20 @@
                     </p>
                 </div>
 
-                <hr class="bg-mid bg-opacity-20 h-[2px]">
+                @if (Auth::user())
+                    <hr class="bg-mid bg-opacity-20 h-[2px]">
 
-                <form action="/forum/{{ $thread->id }}/comment" method="POST" class="w-1/2 flex flex-col gap-5">
-                    {{ csrf_field() }}
-                    <textarea id="comment" name="comment" class="w-full rounded border-0 outline-none py-2 px-3 text-name text-dark font-medium ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-subname placeholder:font-normal focus:ring-2 focus:ring-inset focus:ring-mid focus:shadow-md" placeholder="Type here to reply"></textarea>
-                    @if ($errors->any())
-                        <div class="mt-2 text-name text-red-500 font-medium">
-                            {{ $errors->first() }}
-                        </div>
-                    @endif
-                    <button type="submit" class="w-1/2 px-3 py-1.5 rounded bg-mid text-subheading font-medium text-white transition-all duration-200 hover:shadow-md hover:shadow-mid/25">Post Comment</button>
-                </form>
+                    <form action="/forum/{{ $thread->id }}/comment" method="POST" class="w-1/2 flex flex-col gap-5">
+                        {{ csrf_field() }}
+                        <textarea id="comment" name="comment" class="w-full rounded border-0 outline-none py-2 px-3 text-name text-dark font-medium ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 placeholder:text-subname placeholder:font-normal focus:ring-2 focus:ring-inset focus:ring-mid focus:shadow-md" placeholder="Type here to reply"></textarea>
+                        @if ($errors->any())
+                            <div class="mt-2 text-name text-red-500 font-medium">
+                                {{ $errors->first() }}
+                            </div>
+                        @endif
+                        <button type="submit" class="w-1/2 px-3 py-1.5 rounded bg-mid text-subheading font-medium text-white transition-all duration-200 hover:shadow-md hover:shadow-mid/25">Post Comment</button>
+                    </form>
+                @endif
             </div>
 
             <!-- Comments -->
