@@ -18,10 +18,12 @@ class UserController extends Controller
     public function login(){
         return view('auth.login');
     }
+
+    // Get User Mobile
     public function me_api(){
         return response()->json(Auth::user());
-        // dd(Auth::user());
     }
+
     // Login Validation
     public function validate_login(Request $request){
         // Input
@@ -32,6 +34,7 @@ class UserController extends Controller
 
         // Remember Me
         $remember = $request->remember;
+
         // Valid
         if(Auth::attempt($credentials, true)){
             if($remember){
@@ -45,52 +48,40 @@ class UserController extends Controller
         }
 
         // Not Valid
-        return redirect()->back();
+        return redirect()->back()->withInput()->withErrors(['login' => 'Invalid credentials']);
     }
-    //login_api
+
+    // Login Mobile
     public function login_api(Request $request)
     {
-        // $email = $request->email;
-        // $password = $request->password;
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
 
-        // // Retrieve the account based on the email
-        // $account = User::where([
-        //     'email'=>$email,
-        // ])->first();
-        // if ($account && Hash::check($password,$account->password)) {
-        //     // Credentials are valid, generate a token for the account
-        //     $token = $account->createToken('user',['forum']);
-        //     return [
-        //         'token' => $token->plainTextToken
-        //     ];
-        // }
-        // // Invalid credentials
-        // return ['error' => 'Invalid credentials'];
-                // Input
-                $credentials = [
-                    'email' => $request->email,
-                    'password' => $request->password
-                ];
-                $account = User::where([
-                'email'=>$request->email,
-                    ])->first();
-                // Remember Me
-                // Valid
-                if(Auth::attempt($credentials, true)){
-                    $token = $account->createToken('user',['forum']);
-                    // return redirect('/');
-                                return [
+        $account = User::where([
+            'email'=>$request->email,
+        ])->first();
+
+            
+        // Valid
+        if(Auth::attempt($credentials, true)){
+            $token = $account->createToken('user', ['forum']);
+            return [
                 'token' => $token->plainTextToken
             ];
-                }
+        }
 
-                // Not Valid
-                return false;
-            }
+        // Not Valid
+        return false;
+    }
+
     // Register View
     public function register(){
         return view('auth.register');
     }
+
+    // Register Mobile
     public function register_api(Request $request)
     {
         $validation = [
@@ -105,13 +96,8 @@ class UserController extends Controller
 
         $validator = Validator::make($request->all(), $validation);
         if($validator->fails()){
-            // return["dasdadas"];
-            // return [$validator->errors()];
-            // dd($validator->errors());
             return back()->withErrors($validator);
-            // return response()->json([$validator->errors()->first()]);
         }
-        // Log::info('This is an informational message.');
 
         $user = new User();
         $user->email = $request->email;
@@ -121,8 +107,8 @@ class UserController extends Controller
         $user->gender = $request->gender;
         $user->birthday = $request->birthday;
         $user->save();
-
     }
+
     // Register Validation
     public function validate_register(Request $request){
         $validation = [

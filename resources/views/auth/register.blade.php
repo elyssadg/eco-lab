@@ -73,7 +73,7 @@
             </div>
 
             @if ($errors->any())
-                <div class="mt-5 text-name text-red-500 font-medium">
+                <div class="flex justify-center mt-5 text-name text-red-500 font-medium">
                     {{ $errors->first() }}
                 </div>
             @endif

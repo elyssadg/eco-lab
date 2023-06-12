@@ -32,6 +32,12 @@
             <label class="text-subname text-dark font-medium" for="remember">Remember Me</label>
         </div>
 
+        @if ($errors->any())
+            <div class="flex justify-center mt-5 text-name text-red-500 font-medium">
+                {{ $errors->first() }}
+            </div>
+        @endif
+
         <div class="mt-5 flex justify-center w-full">
             <button type="submit" class="w-full py-1.5 rounded bg-mid text-subheading font-medium text-white transition-all duration-200 hover:shadow-md hover:shadow-mid/25">Sign In</button>
         </div>

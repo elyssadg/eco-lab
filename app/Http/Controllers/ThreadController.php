@@ -21,6 +21,7 @@ class ThreadController extends Controller
                 ->with('threads', $threads);
     }
 
+    // Get Thread By ID
     public function thread($id){
         $thread = Thread::find($id);
         $threads = Thread::all();
@@ -36,18 +37,19 @@ class ThreadController extends Controller
                 ->with('unanswered_threads', $unanswered_threads)
                 ->with('thread', $thread);
     }
+
     public function thread_api(){
         $threads = Thread::all();
-        // $unanswered_threads = Thread::doesntHave('comment')->take(3)->get();
-
-        // return response()->json(['data'=>$threads]);
         return ThreadResource::collection($threads);
     }
+
+    // Get Thread Mobile
     public function show_api($id){
         $threads = Thread::find($id);
         // return response()->json(['data'=>$threads]);
         return new ThreadResource($threads);
     }
+
     // Add New Thread
     public function post_thread(Request $request){
         $validation = [
@@ -66,18 +68,30 @@ class ThreadController extends Controller
         }
     }
 
-        public function post_thread_api(Request $request){
+    // New Thread Mobile
+    public function post_thread_api(Request $request){
+        $validation = [
+            'title' => 'required',
+            'message' => 'required|regex:/\b(\w+\b\s*){5,}/',
+            'image' => 'mimetypes:image/jpeg,image/jpg,image/png'
+        ];
+
+        $validator = Validator::make($request->all(), $validation);
+        if($validator->fails()){
+            $error_message = $validator->errors()->first();
+            return response()->json([
+                'error' => true,
+                'error_message' => $error_message
+            ]);
+        }
+
         $thread = new Thread();
         $thread->user_id = Auth::user()->id;
         $thread->title = $request->title;
         $thread->message = $request->message;
         $thread->posting_date = Carbon::now('Asia/Jakarta');
         $thread->save();
-        // return response()->json([
-        //     'error' => false,
-        //     'redirect' => '/forum/'.$thread->id
-        // ]);
-        return "true";
+        return "false";
     }
 
 }

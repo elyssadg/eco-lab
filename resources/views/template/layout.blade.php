@@ -81,20 +81,22 @@
         });
     });
 
-    let profile = document.getElementById('profile');
-    let name = document.getElementById('profile-name');
-    let icon = document.getElementById('profile-icon');
-    let logout = document.getElementById('logout');
-    profile.addEventListener('mouseover', function() {
-        name.style.display = 'none';
-        icon.style.display = 'none';
-        logout.style.display = 'block';
-    });
-    
-    profile.addEventListener('mouseleave', function() {
-        name.style.display = 'block';
-        icon.style.display = 'block';
-        logout.style.display = 'none';
-    });
+    @if (Auth::user())
+        let profile = document.getElementById('profile');
+        let name = document.getElementById('profile-name');
+        let icon = document.getElementById('profile-icon');
+        let logout = document.getElementById('logout');
+        profile.addEventListener('mouseover', function() {
+            name.style.display = 'none';
+            icon.style.display = 'none';
+            logout.style.display = 'block';
+        });
+        
+        profile.addEventListener('mouseleave', function() {
+            name.style.display = 'block';
+            icon.style.display = 'block';
+            logout.style.display = 'none';
+        });
+    @endif
 </script>
 </html>
