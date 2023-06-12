@@ -64,25 +64,20 @@ class ThreadController extends Controller
                 'error_message' => $error_message
             ]);
         }
+    }
 
-
+        public function post_thread_api(Request $request){
         $thread = new Thread();
         $thread->user_id = Auth::user()->id;
         $thread->title = $request->title;
         $thread->message = $request->message;
         $thread->posting_date = Carbon::now('Asia/Jakarta');
-        if($request->image != null){
-            $file = $request->file('image');
-            $image_name = time().'.'.$file->getClientOriginalExtension();
-            Storage::putFileAs('public/assets/thread-image', $file, $image_name);
-            $thread->image = $image_name;
-        }
         $thread->save();
-
-        return response()->json([
-            'error' => false,
-            'redirect' => '/forum/'.$thread->id
-        ]);
+        // return response()->json([
+        //     'error' => false,
+        //     'redirect' => '/forum/'.$thread->id
+        // ]);
+        return "true";
     }
 
 }

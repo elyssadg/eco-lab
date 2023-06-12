@@ -37,5 +37,4 @@ Route::group(['middleware' => 'auth'], function(){
     Route::post('/forum/{id}/unlike', [LikeController::class, 'unlike']);
 });
 
-Route::get('/login', [UserController::class, 'login_api']);
-Route::get('/register', [UserController::class, 'register_api']);
+
