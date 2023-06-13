@@ -66,6 +66,18 @@ class ThreadController extends Controller
                 'error_message' => $error_message
             ]);
         }
+        
+        $thread = new Thread();
+        $thread->user_id = Auth::user()->id;
+        $thread->title = $request->title;
+        $thread->message = $request->message;
+        $thread->posting_date = Carbon::now('Asia/Jakarta');
+        $thread->save();
+
+        return response()->json([
+            'error' => false,
+            'redirect' => 'forum/'.$thread->id
+        ]);
     }
 
     // New Thread Mobile
